@@ -1,0 +1,27 @@
+{
+  "name": "enflujo-tipo-lito-calavera",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro build && astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write --list-different ."
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^1.0.0",
+    "@rollup/plugin-graphql": "^2.0.2",
+    "astro": "^1.6.0",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.13",
+    "graphql": "^16.6.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.6.0",
+    "sass": "^1.55.0"
+  }
+}

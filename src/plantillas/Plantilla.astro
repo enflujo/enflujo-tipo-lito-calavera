@@ -1,0 +1,47 @@
+---
+import { gql, obtenerDatos } from '@/utilidades/ayudas';
+
+export interface Props {
+	titulo: string;
+}
+
+const { titulo } = Astro.props;
+const ruta = new URL(Astro.url.pathname, Astro.site);
+
+const General = gql`
+  query {
+    general {
+      color
+    }
+  }
+`;
+
+const { general } = await obtenerDatos(General);
+const colorPrincipal = general.color;
+console.log(colorPrincipal)
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{titulo}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global lang="scss" define:vars={{ colorPrincipal }}>
+	:root {
+		--colorPrincipal: colorPrincipal;
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: var(--colorPrincipal);
+	}
+</style>
